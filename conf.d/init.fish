@@ -1,6 +1,4 @@
 if status is-interactive
-    # Use vi keybindings
-    fish_vi_key_bindings
 
     if command -v mise &>/dev/null
         mise activate fish | source

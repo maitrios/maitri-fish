@@ -1,3 +1,6 @@
+# maitri environment (MAITRI_PATH + PATH), needed even for non-interactive shells
+[[ -r /usr/share/maitri/default/bash/env-bootstrap ]] && source /usr/share/maitri/default/bash/env-bootstrap
+
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
 
@@ -10,8 +13,8 @@ if command -v fish &> /dev/null; then
 	fi
 fi
 
-# All the default Omarchy aliases and functions
+# All the default maitri aliases and functions
 # (don't mess with these directly, just overwrite them here!)
-source ~/.local/share/omarchy/default/bash/rc
+source "$MAITRI_PATH/default/bash/rc"
 
 # Add your own exports, aliases, and functions below.

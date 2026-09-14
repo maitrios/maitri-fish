@@ -1,12 +1,12 @@
-Omarchy shell configuration for Fish shell.
+maitri shell configuration for Fish shell.
 
 ## Install
 ```bash
 # Install the package
-sudo pacman -S omarchy-fish
+sudo pacman -S maitri-fish
 
 # Setup bash to auto-launch fish
-omarchy-setup-fish
+maitri-setup-fish
 ```
 
 ## fzf.fish Keybindings
@@ -19,7 +19,7 @@ omarchy-setup-fish
 
 ## Customization
 
-To add your own functions or override omarchy-fish functions:
+To add your own functions or override maitri-fish functions:
 
 ```bash
 # Create your own functions
@@ -35,7 +35,7 @@ User functions in `~/.config/fish/functions/` take precedence over vendor functi
 ## Uninstall
 
 ```bash
-sudo pacman -R omarchy-fish
+sudo pacman -R maitri-fish
 ```
 
 To restore bash, copy a backup to `~/.bashrc` (backups are saved as `.bashrc.backup-*`).

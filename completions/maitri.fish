@@ -1,12 +1,12 @@
-function __omarchy_complete
+function __maitri_complete
     set -l tokens (commandline -opc)
 
-    set -l omarchy_path (command -v omarchy 2>/dev/null); or return 0
-    set -l resolved (realpath -- $omarchy_path 2>/dev/null); or set resolved $omarchy_path
+    set -l maitri_path (command -v maitri 2>/dev/null); or return 0
+    set -l resolved (realpath -- $maitri_path 2>/dev/null); or set resolved $maitri_path
     set -l bin_dir (dirname -- $resolved)
     test -d $bin_dir; or return 0
 
-    set -l prefix omarchy
+    set -l prefix maitri
     set -l positional_count 0
     for tok in $tokens[2..]
         test -z "$tok"; and continue
@@ -45,4 +45,4 @@ function __omarchy_complete
     end
 end
 
-complete -c omarchy -f -a '(__omarchy_complete)'
+complete -c maitri -f -a '(__maitri_complete)'

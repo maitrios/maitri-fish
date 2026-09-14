@@ -16,7 +16,7 @@ function iso2sd --description 'Write ISO file to SD card'
       return 1
     end
 
-    set drive (omarchy-drive-select "$available_sds")
+    set drive (maitri-drive-select "$available_sds")
 
     if test -z "$drive"
       echo "No drive selected"

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
-PKGBUILD_SRC="${1:-$HOME/Work/omarchy/omarchy-pkgs/pkgbuilds/edge/omarchy-fish}"
+PKGBUILD_SRC="${1:-${MAITRI_PKGBUILDS_DIR:-$HOME/dev/kindness/maitri-pkgs/pkgbuilds}/maitri-fish}"
 
 if [[ ! -f $PKGBUILD_SRC/PKGBUILD ]]; then
   echo "PKGBUILD not found in: $PKGBUILD_SRC" >&2
@@ -24,7 +24,7 @@ if [[ -n $(git -C "$REPO" status --porcelain) ]]; then
 fi
 pkgver="dev.${short_sha}${dirty}"
 
-build_dir=$(mktemp -d -t omarchy-fish-pkg-test.XXXXXX)
+build_dir=$(mktemp -d -t maitri-fish-pkg-test.XXXXXX)
 trap 'rm -rf "$build_dir"' EXIT
 
 cp -a "$PKGBUILD_SRC"/. "$build_dir/"

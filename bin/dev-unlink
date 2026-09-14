@@ -22,7 +22,7 @@ for dst_dir in "$VENDOR_BASE"/vendor_functions.d "$VENDOR_BASE"/vendor_conf.d "$
   done
 done
 
-BANNER="$VENDOR_BASE/vendor_conf.d/__omarchy-fish-dev-banner.fish"
+BANNER="$VENDOR_BASE/vendor_conf.d/__maitri-fish-dev-banner.fish"
 if [[ -f $BANNER ]]; then
   rm -- "$BANNER"
   removed=$((removed + 1))

@@ -28,10 +28,10 @@ done
 
 # Drop a conf.d snippet so every new interactive fish prints a reminder that
 # the working tree is shadowing the packaged version. Removed by dev-unlink.
-BANNER="$VENDOR_BASE/vendor_conf.d/__omarchy-fish-dev-banner.fish"
+BANNER="$VENDOR_BASE/vendor_conf.d/__maitri-fish-dev-banner.fish"
 cat >"$BANNER" <<EOF
 status is-interactive; or return
-printf '\e[33m⚠ omarchy-fish dev linked: \e[1m%s\e[22m — run "bin/dev-unlink" to restore packaged version\e[0m\n' '$REPO'
+printf '\e[33m⚠ maitri-fish dev linked: \e[1m%s\e[22m — run "bin/dev-unlink" to restore packaged version\e[0m\n' '$REPO'
 EOF
 
 echo "Linked $linked file(s) from $REPO into $VENDOR_BASE/vendor_*.d/"
