@@ -8,10 +8,6 @@ if status is-interactive
         zoxide init fish | source
     end
 
-    if command -v starship &>/dev/null
-        starship init fish | source
-    end
-
     # Configure fzf.fish keybindings - disable process search
     if command -v fzf &>/dev/null
         fzf_configure_bindings --processes=
