@@ -1,4 +1,4 @@
-maitri shell configuration for Fish shell.
+maitri shell configuration for Fish shell: functions, completions, the [pure](https://github.com/pure-fish/pure) prompt with [fish-async-prompt](https://github.com/acomagu/fish-async-prompt) and fzf.fish.
 
 ## Install
 ```bash
@@ -16,6 +16,13 @@ maitri-setup-fish
 - **Ctrl+R** - Search History
 - **Ctrl+Alt+P** - Search Processes
 - **Ctrl+V** - Search Variables
+
+## Prompt
+
+The prompt is [pure](https://github.com/pure-fish/pure), configured in `conf.d/prompt.fish`; its git segment
+updates asynchronously through [fish-async-prompt](https://github.com/acomagu/fish-async-prompt), so large
+repositories never block the prompt. Override any `pure_*` variable from `~/.config/fish/config.fish`
+(see the [pure docs](https://pure-fish.github.io/pure/)).
 
 ## Customization
 
