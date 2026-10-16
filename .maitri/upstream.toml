@@ -1,0 +1,5 @@
+# The upstream maitri-fish was ported from, and the newest upstream commit already reviewed.
+# .github/workflows/upstream-watch.yml reads it; port PRs move `reviewed` forward.
+upstream = "omacom-io/omarchy-fish"
+branch = "master"
+reviewed = "3658ad06dc5e06e17d235a96e47c999eedede2f4"
