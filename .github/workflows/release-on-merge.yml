@@ -1,0 +1,29 @@
+name: Release on merge
+
+# maitri-pkgs builds maitri-fish from a tag, and its update-packages job picks up new tags. A merged
+# `upstream-sync` PR is a user-visible change, so tag the next patch version and publish a release.
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    if: ${{ github.event.pull_request.merged && contains(github.event.pull_request.labels.*.name, 'upstream-sync') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tag and publish the next patch release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.event.pull_request.merge_commit_sha }}
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          set -euo pipefail
+          latest=$(gh api "repos/$GITHUB_REPOSITORY/tags?per_page=100" --jq '.[].name' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -1)
+          IFS=. read -r major minor patch <<<"${latest#v}"
+          next="v$major.$minor.$((patch + 1))"
+          gh release create "$next" --repo "$GITHUB_REPOSITORY" --target "$SHA" --title "$next" --generate-notes --notes "$TITLE (#${{ github.event.pull_request.number }})"
